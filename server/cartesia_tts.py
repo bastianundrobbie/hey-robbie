@@ -104,10 +104,23 @@ class CartesiaTTS:
 
         t0 = time.monotonic()
         self._session = aiohttp.ClientSession()
-        self._ws = await self._session.ws_connect(
-            url,
-            heartbeat=30.0,
-        )
+        try:
+            self._ws = await self._session.ws_connect(
+                url,
+                heartbeat=30.0,
+            )
+        except aiohttp.WSServerHandshakeError as exc:
+            # Never let the URL (which carries the API key) reach the logs.
+            await self._session.close()
+            self._session = None
+            hint = " (402: no credit on the Cartesia account?)" if exc.status == 402 else ""
+            raise RuntimeError(
+                f"Cartesia handshake failed: HTTP {exc.status} {exc.message}{hint}"
+            ) from None
+        except Exception:
+            await self._session.close()
+            self._session = None
+            raise
         elapsed = int((time.monotonic() - t0) * 1000)
         self._connected = True
         self._keepalive_task = asyncio.create_task(self._keepalive_loop())
