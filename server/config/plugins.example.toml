@@ -1,0 +1,45 @@
+# plugins.toml — MCP plugins (Robbie's tools) and their assignment.
+# Copy to plugins.toml.
+#
+# `enabled` = plugins the entity gets, in this order. Each [mcp_servers.X]
+# starts `python -m <module> <args>` as a stdio MCP server inside the SDK
+# subprocess; {placeholders} in args come from [mcp_vars] in config.toml.
+# The `prompt` block is appended to the system prompt so Robbie knows what
+# the tool does and when to use it.
+
+enabled = ["datetime", "weather"]
+
+[mcp_servers.datetime]
+module = "mcp_datetime"
+args = ["--timezone", "Europe/Berlin"]
+prompt = """### Datum & Uhrzeit (datetime)
+Ein Zeitdienst auf deinem Heimserver (Zeitzone Europe/Berlin). Liefert immer die exakte Systemzeit — keine Schätzungen. Nutze dieses Tool statt die Uhrzeit zu raten.
+
+Funktionen:
+- get_current_datetime — Aktuelle Uhrzeit, Datum, Wochentag, Kalenderwoche
+- get_date_info — Infos zu einem bestimmten Datum (Wochentag, KW, Tage bis/seit heute)
+- get_week_info — Alle Tage einer Kalenderwoche anzeigen
+- get_countdown — Countdown zu einem Datum ("Wie lange noch bis...")
+- get_unix_timestamp — Unix-Zeitstempel
+
+Regeln:
+- IMMER das Tool nutzen wenn nach Uhrzeit, Datum, Wochentag oder Kalenderwoche gefragt wird
+- IMMER das Tool nutzen für Countdowns, Datumsberechnungen oder "welcher Tag ist..."
+- NIEMALS Uhrzeit oder Datum raten oder aus dem Gedächtnis beantworten"""
+
+[mcp_servers.weather]
+module = "mcp_weather"
+args = ["--lat", "{weather_lat}", "--lon", "{weather_lon}", "--place", "{weather_place}"]
+prompt = """### Wetter (weather)
+Wetterdaten für zuhause, abgerufen vom Deutschen Wetterdienst (DWD) über die nächstgelegene Wetterstation. Immer echte Messdaten und Vorhersagen — keine Schätzungen. Nutze dieses Tool statt Wetter zu raten.
+
+Funktionen:
+- current_weather(location?) — aktuelles Wetter der nächsten Station (Temperatur, Wetterlage, Wind, Luftfeuchte). Ohne Ortsangabe: zuhause.
+- forecast(location?, days?) — Vorschau für bis zu 7 Tage (Standard 7; Tag 1 = heute) mit Wochentag, Min-/Max-Temperatur, Niederschlag + Wahrscheinlichkeit und Wind.
+
+Regeln:
+- IMMER das Tool nutzen wenn nach Wetter, Temperatur, Regen, Vorhersage oder "brauche ich eine Jacke/einen Regenschirm" gefragt wird
+- NIEMALS Wetter raten oder aus dem Gedächtnis beantworten
+- Standardort ist zuhause; für andere Orte den Ortsnamen in `location` geben
+- Sprich Werte natürlich aus ("zwanzig Grad", "am Freitag") und fasse dich kurz — nicht alle sieben Tage vorlesen, wenn nur nach morgen gefragt wird
+- Die genutzte DWD-Station und ihre Entfernung darfst du erwähnen, musst du aber nicht"""

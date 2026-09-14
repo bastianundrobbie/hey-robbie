@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+
+# Secrets
+.env
+
+# Live config (copy the *.example.toml files; your copies stay local)
+server/config/config.toml
+server/config/plugins.toml
+server/config/prompt.toml
+server/config/*.bak
+compose.yaml
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs / backups
+*.log
+*.bak
+
+# Wakeword model (downloaded or self-trained, see models/README.md)
+models/*.onnx

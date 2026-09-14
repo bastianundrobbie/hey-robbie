@@ -1,0 +1,8 @@
+# Streaming/voice WebSocket + batch STT
+websockets>=13
+
+# Wakeword (step 4): openWakeWord runs the hey_robbie ONNX classifier plus its
+# bundled melspectrogram/embedding feature models via onnxruntime.
+# onnxruntime pulls numpy; openwakeword pulls scipy.
+openwakeword
+onnxruntime

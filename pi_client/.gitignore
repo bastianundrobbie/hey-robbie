@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+
+# The wakeword model for the standalone test (wakeword.py --test) is copied
+# from ../models/hey_robbie.onnx onto the Pi; not tracked twice.
+models/

@@ -1,0 +1,2 @@
+# Pi client runs on Linux (Raspberry Pi) — keep LF regardless of host autocrlf.
+* text=auto eol=lf

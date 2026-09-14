@@ -1,0 +1,20 @@
+# Robbie server — dependencies
+
+# Web framework
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# Claude Agent SDK (persistent subprocess; reads ANTHROPIC_API_KEY)
+claude-agent-sdk>=0.1.50
+
+# HTTP / WebSocket client (Deepgram, Cartesia)
+aiohttp>=3.9.0
+websockets>=12.0
+
+# MCP plugins (stdio servers started by the SDK)
+mcp>=1.0.0
+
+# Server-side wakeword ("Hey Robbie" via openWakeWord)
+numpy>=1.26
+openwakeword==0.4.0
+onnxruntime>=1.17

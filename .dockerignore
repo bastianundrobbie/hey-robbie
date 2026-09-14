@@ -1,0 +1,10 @@
+.venv/
+.git/
+**/__pycache__/
+*.pyc
+*.bak
+.env
+*.log
+pi_client/
+scripts/
+docs/

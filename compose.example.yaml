@@ -1,0 +1,37 @@
+# Robbie server — Docker Compose template.
+#
+#   cp compose.example.yaml compose.yaml
+#   cp .env.example .env                      # then fill in the three API keys
+#   cp server/config/config.example.toml  server/config/config.toml
+#   cp server/config/plugins.example.toml server/config/plugins.toml
+#   cp server/config/prompt.example.toml  server/config/prompt.toml
+#   docker compose up -d --build
+#   docker compose logs -f
+#
+# Config changes take effect after `curl -X POST localhost:8422/api/reload`
+# (or a container restart). Code changes need a rebuild — server/ is COPYed
+# into the image; only server/config/ is bind-mounted live.
+services:
+  robbie-server:
+    build: .
+    image: robbie-server:local
+    container_name: robbie-server
+    restart: unless-stopped
+    ports:
+      - "8422:8422"
+    env_file:
+      - .env
+    environment:
+      TZ: Europe/Berlin
+      # STT engine: "nova" (silence-based endpointing) or "flux" (model-based
+      # turn detection, snappier on clearly finished commands, patient on
+      # thinking pauses). Flux is what the reference setup runs.
+      ROBBIE_STT_ENGINE: flux
+      ROBBIE_FLUX_EOT_THRESHOLD: "0.85"
+      # Words Deepgram should get right (names, pets, places) — comma-separated.
+      # ROBBIE_STT_KEYTERMS: "Robbie,Alex,Kim,Fips"
+      # Wakeword sensitivity (0.4 = calibrated on the reference speakerphone).
+      # ROBBIE_WAKE_THRESHOLD: "0.4"
+    volumes:
+      # Live, editable config (config.toml + plugins.toml + prompt.toml).
+      - ./server/config:/app/server/config:rw

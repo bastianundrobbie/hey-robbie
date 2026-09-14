@@ -1,0 +1,23 @@
+# Auto-detect text files and normalize to LF in the repository.
+# Fixes phantom CRLF diffs from editing over SFTP/Windows.
+* text=auto eol=lf
+
+# Scripts must stay LF
+*.sh   text eol=lf
+*.py   text eol=lf
+*.toml text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+
+# Binaries — never touch
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.onnx binary
+*.wav  binary
+*.mp3  binary
+*.flac binary
+*.zip  binary
+*.gz   binary

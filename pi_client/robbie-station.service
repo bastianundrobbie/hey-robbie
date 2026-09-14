@@ -1,0 +1,40 @@
+# Robbie speech-station appliance — systemd system service.
+#
+# Runs station.py (persistent /voice/duplex uplink; wakeword, STT and
+# barge-in all server-side) forever as a boot service, so the Pi is a
+# self-starting voice appliance.
+#
+# Install on the Pi (adjust User= and the paths if your user is not "pi"):
+#   sudo cp ~/pi_client/robbie-station.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now robbie-station.service
+#   journalctl -u robbie-station -f      # watch it come up
+#
+# Notes:
+#   - System (not --user) service: boots without a login session. The user
+#     must be in the `audio` group so the speakerphone (plughw:CARD=USB) is
+#     reachable; raw ALSA needs no per-user audio session.
+#   - station.py reconnects with backoff (error tone) when the server is gone;
+#     Restart=always is only the backstop for truly-fatal crashes.
+
+[Unit]
+Description=Robbie speech station (hands-free voice appliance)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+# PLACEHOLDER: the Pi user that owns ~/pi_client (default Raspberry Pi OS user)
+User=pi
+WorkingDirectory=/home/pi/pi_client
+# PLACEHOLDER: hostname or IP of the server container's host
+Environment=ROBBIE_SERVER_HOST=robbie-server.local
+Environment=ROBBIE_SERVER_PORT=8422
+Environment=ROBBIE_ALSA_DEV=plughw:CARD=USB
+ExecStart=/home/pi/pi_client/.venv/bin/python -u /home/pi/pi_client/station.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

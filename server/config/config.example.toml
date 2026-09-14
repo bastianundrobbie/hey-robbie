@@ -1,0 +1,40 @@
+# config.toml — server settings and the entity (Robbie himself).
+# Copy to config.toml. No secrets here — API keys live in .env.
+#
+# Companion files in this directory:
+#   plugins.toml  — MCP plugins (tools) and their prompt blocks
+#   prompt.toml   — Robbie's personality (system prompt)
+
+[server]
+host = "0.0.0.0"
+port = 8422
+default_entity = "robbie"
+
+# Values usable as {placeholders} in plugins.toml args.
+[mcp_vars]
+weather_lat   = "52.52"        # PLACEHOLDER: latitude of your home
+weather_lon   = "13.405"       # PLACEHOLDER: longitude of your home
+weather_place = "Musterstadt"  # PLACEHOLDER: how Robbie names your home town
+
+[entities.robbie]
+display_name = "Robbie"
+
+# ── Claude Agent SDK ──
+model = "sonnet"         # opus | sonnet | haiku (SDK aliases)
+effort = "medium"        # low | medium | high | max
+max_turns = 10           # tool-call rounds per answer
+bare = true              # no CLAUDE.md discovery, hooks, auto-memory, LSP
+tools = "none"           # no built-in tools (Bash, files) — MCP tools only
+
+# ── Wakeword (must match the model key in models/hey_robbie.onnx) ──
+wakeword = "hey_robbie"
+
+# ── TTS (Cartesia Sonic) ──
+tts_provider = "cartesia"
+tts_model = "sonic-3"
+# Pick a German voice: GET /api/voices lists them, /api/voices/<id>/preview
+# plays a sample. PLACEHOLDER: the id below is the voice the reference Robbie
+# uses — put your own here if you want him to sound different.
+tts_voice_id = "9b4d08b6-0494-4301-ab92-9150f4ee2718"
+tts_speed = 1.0          # 0.6–1.5
+tts_gain = 0.0
