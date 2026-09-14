@@ -125,8 +125,12 @@ Monat. Die gemessene Rechnung, je Anbieter getrennt, kommt in Teil 6.
 - **Das Speakerphone gehört einem Programm.** Vor einem Handtest den Dienst
   stoppen: `sudo systemctl stop robbie-station`.
 - **Ein Pi pro Server.** Der Server nimmt genau eine Sprechstelle an.
-- **Cartesia antwortet mit 402**, wenn das Guthaben aufgebraucht ist. Der
-  Server startet trotzdem, Robbie bleibt dann stumm.
+- **Cartesia antwortet mit 402**, wenn das Konto keine Sprech-Verbindung
+  mehr erlaubt (Guthaben, Plan). Der Server startet trotzdem, Robbie bleibt
+  dann stumm. Im Protokoll: `Cartesia handshake failed: HTTP 402`.
+- **`authentication_failed — Not logged in`** im Protokoll heißt: der
+  Anthropic-Schlüssel fehlt oder ist falsch. Robbie hört und versteht dann,
+  antwortet aber nicht; die Station spielt den Fehlerton.
 
 ## Was nicht drin ist
 
