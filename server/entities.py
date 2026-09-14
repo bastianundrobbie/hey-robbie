@@ -8,7 +8,7 @@ Extracted from ``app.py`` — contains all entity-related code:
 - ``SDKWrapper`` — persistent ``ClaudeSDKClient`` per entity
 - ``EntityManager`` — lifecycle for all entities
 
-Authentication: the Claude Agent SDK subprocess reads ``ANTHROPIC_API_KEY``
+Authentication: the Anthropic SDK subprocess reads ``ANTHROPIC_API_KEY``
 from the environment (set it in ``.env``). Nothing else is needed.
 """
 

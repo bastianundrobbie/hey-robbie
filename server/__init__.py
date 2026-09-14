@@ -1,5 +1,5 @@
-"""Claude Code Server — gekapselter Claude per API.
+"""Robbie server — Claude behind a voice loop.
 
-Startet einen persistenten ClaudeSDKClient und exponiert ihn
-per WebSocket und HTTP/SSE.
+Keeps one persistent Claude session per entity and exposes it over
+WebSocket and HTTP.
 """

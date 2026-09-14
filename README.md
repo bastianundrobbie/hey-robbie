@@ -110,7 +110,8 @@ Monat. Die gemessene Rechnung, je Anbieter getrennt, kommt in Teil 6.
 
 ## Grenzen und bekannte Fehlerbilder
 
-- **Kein lokales Modell.** Die Werkzeug-Anbindung hängt am Claude Agent SDK.
+- **Kein lokales Modell.** Die Werkzeug-Anbindung hängt an Anthropics
+  Claude-Schnittstelle.
   Ein Umbau auf ein lokales Modell ist nicht geplant, aber auch nicht
   ausgeschlossen.
 - **Das Wake-Word-Modell liegt nicht bei.** Modelle aus der openWakeWord-

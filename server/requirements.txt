@@ -4,7 +4,7 @@
 fastapi>=0.115.0
 uvicorn[standard]>=0.30.0
 
-# Claude Agent SDK (persistent subprocess; reads ANTHROPIC_API_KEY)
+# Anthropic SDK for Claude (persistent subprocess; reads ANTHROPIC_API_KEY)
 claude-agent-sdk>=0.1.50
 
 # HTTP / WebSocket client (Deepgram, Cartesia)

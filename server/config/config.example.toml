@@ -19,7 +19,7 @@ weather_place = "Musterstadt"  # PLACEHOLDER: how Robbie names your home town
 [entities.robbie]
 display_name = "Robbie"
 
-# ── Claude Agent SDK ──
+# ── Claude (Anthropic API) ──
 model = "sonnet"         # opus | sonnet | haiku (SDK aliases)
 effort = "medium"        # low | medium | high | max
 max_turns = 10           # tool-call rounds per answer

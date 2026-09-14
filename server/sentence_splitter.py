@@ -4,7 +4,7 @@ Splits buffered text at sentence boundaries (`.`, `!`, `?` + whitespace),
 respecting abbreviations (Dr., z.B., etc.) and minimum sentence length.
 
 Also provides ``extract_text_delta`` to pull text chunks out of Claude
-Agent SDK ``StreamEvent`` objects.
+SDK ``StreamEvent`` objects.
 
 Shared between ``core.claude_client`` (Voice-Client) and
 ``server.app`` (API-Server) to avoid code duplication.
@@ -210,7 +210,7 @@ def split_sentences(
 
 
 def extract_text_delta(msg: object) -> str:
-    """Extract text from a Claude Agent SDK ``StreamEvent`` (text_delta).
+    """Extract text from an SDK ``StreamEvent`` (text_delta).
 
     Inspects the nested event structure::
 

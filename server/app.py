@@ -183,7 +183,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Robbie Server",
-    description="Voice assistant brain: Claude Agent SDK + Deepgram + Cartesia",
+    description="Voice assistant brain: Claude (Anthropic) + Deepgram + Cartesia",
     version="1.0.0",
     lifespan=lifespan,
 )
