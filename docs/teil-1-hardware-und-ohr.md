@@ -32,7 +32,7 @@ diesem Strom auf zwei Wörter. Erst wenn die fallen, geht in Teil 2 etwas
 nach draußen, zu drei Diensten für Hören, Denken und Sprechen. Heute
 bleibt alles im Haus.
 
-Der Code liegt hier: `<REPO-URL>`. Du brauchst ihn zweimal, einmal auf dem
+Der Code liegt hier: <https://github.com/bastianundrobbie/hey-robbie>. Du brauchst ihn zweimal, einmal auf dem
 Server und einmal auf dem Pi.
 
 ---
@@ -158,7 +158,7 @@ Vorlagen bleiben im Repo, deine Kopien bleiben lokal, und deine Kopien
 werden nie ins Internet hochgeladen, das ist im Repo so eingestellt.
 
 ```bash
-git clone <REPO-URL> robbie
+git clone https://github.com/bastianundrobbie/hey-robbie.git robbie
 cd robbie
 cp compose.example.yaml compose.yaml
 cp .env.example .env
@@ -253,7 +253,7 @@ braucht nur einen Ordner davon, `pi_client`. Ein einziges Python-Paket
 dazu, `websockets`, das ist die Leitung zum Server.
 
 ```bash
-git clone <REPO-URL> ~/robbie
+git clone https://github.com/bastianundrobbie/hey-robbie.git ~/robbie
 cp -r ~/robbie/pi_client ~/pi_client
 cd ~/pi_client
 python3 -m venv .venv

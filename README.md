@@ -62,7 +62,7 @@ Ausführlich mit allen Prüfschritten steht das in Teil 1. Die Kurzfassung:
 **Server** (ein Rechner mit Docker im Heimnetz):
 
 ```bash
-git clone <REPO-URL> robbie && cd robbie
+git clone https://github.com/bastianundrobbie/hey-robbie.git robbie && cd robbie
 cp compose.example.yaml compose.yaml
 cp .env.example .env                                 # drei Schlüssel, siehe unten
 cp server/config/config.example.toml  server/config/config.toml
@@ -76,7 +76,7 @@ docker compose logs -f
 **Pi** (Raspberry Pi OS Lite, Speakerphone am USB):
 
 ```bash
-git clone <REPO-URL> ~/robbie && cp -r ~/robbie/pi_client ~/pi_client
+git clone https://github.com/bastianundrobbie/hey-robbie.git ~/robbie && cp -r ~/robbie/pi_client ~/pi_client
 cd ~/pi_client && python3 -m venv .venv && .venv/bin/pip install websockets
 ROBBIE_SERVER_HOST=<SERVER-IP> .venv/bin/python station.py --once   # Handtest
 # dann robbie-station.service anpassen (User, Server-Adresse) und einschalten
