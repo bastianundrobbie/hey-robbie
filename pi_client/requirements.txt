@@ -1,8 +1,11 @@
-# Streaming/voice WebSocket + batch STT
+# The station (station.py) needs exactly one package: the WebSocket client
+# for the persistent /voice/duplex uplink. Wakeword detection runs on the
+# SERVER, so nothing heavy is needed on the Pi.
 websockets>=13
 
-# Wakeword (step 4): openWakeWord runs the hey_robbie ONNX classifier plus its
-# bundled melspectrogram/embedding feature models via onnxruntime.
-# onnxruntime pulls numpy; openwakeword pulls scipy.
-openwakeword
-onnxruntime
+# Optional — only for the standalone local wakeword test (wakeword.py --test),
+# which runs the ONNX classifier on the Pi itself. Not needed for operation;
+# on a Pi 3 the install takes a while (onnxruntime pulls numpy, openwakeword
+# pulls scipy). Uncomment if you want it:
+# openwakeword
+# onnxruntime

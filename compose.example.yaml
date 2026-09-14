@@ -10,7 +10,9 @@
 #
 # Config changes take effect after `curl -X POST localhost:8422/api/reload`
 # (or a container restart). Code changes need a rebuild — server/ is COPYed
-# into the image; only server/config/ is bind-mounted live.
+# into the image; server/config/ and models/ are bind-mounted live, so a
+# wakeword model can be dropped in or swapped without a rebuild (it is
+# loaded when the station connects).
 services:
   robbie-server:
     build: .
@@ -35,3 +37,5 @@ services:
     volumes:
       # Live, editable config (config.toml + plugins.toml + prompt.toml).
       - ./server/config:/app/server/config:rw
+      # Wakeword model (models/hey_robbie.onnx — see models/README.md).
+      - ./models:/app/models:ro
