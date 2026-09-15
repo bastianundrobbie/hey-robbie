@@ -87,7 +87,7 @@ Startguthaben; ohne Schlüssel läuft das Wake Word trotzdem):
 
 | Variable | Dienst | Wofür |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | console.anthropic.com | denken |
+| `ANTHROPIC_API_KEY` | platform.claude.com (früher console.anthropic.com) | denken |
 | `DEEPGRAM_API_KEY` | console.deepgram.com | hören |
 | `CARTESIA_API_KEY` | play.cartesia.ai | sprechen |
 
