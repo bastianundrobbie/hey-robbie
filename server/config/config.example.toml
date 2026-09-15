@@ -20,7 +20,7 @@ weather_place = "Musterstadt"  # PLACEHOLDER: how Robbie names your home town
 display_name = "Robbie"
 
 # ── Claude (Anthropic API) ──
-model = "sonnet"         # opus | sonnet | haiku (SDK aliases)
+model = "sonnet"         # opus | sonnet | haiku | fable (SDK aliases)
 effort = "medium"        # low | medium | high | max
 max_turns = 10           # tool-call rounds per answer
 bare = true              # no CLAUDE.md discovery, hooks, auto-memory, LSP

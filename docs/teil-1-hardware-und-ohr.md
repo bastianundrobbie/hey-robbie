@@ -496,7 +496,7 @@ hostname -I | awk '{print $1}'
 ```
 
 ```
-192.168.1.35
+192.168.178.30
 ```
 
 Bei dir steht da deine eigene Adresse. Im Rest des Kapitels heißt sie

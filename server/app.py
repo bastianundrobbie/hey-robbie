@@ -267,7 +267,7 @@ async def get_entities():
               "wakeword": "hey_robbie",
               "tts_provider": "cartesia",
               "tts_model": "sonic-3",
-              "tts_voice_id": "Kore",
+              "tts_voice_id": "9b4d08b6-0494-4301-ab92-9150f4ee2718",
               "tts_gain": 0.0
             }
           ],
@@ -631,7 +631,7 @@ async def get_entity_context(name: str):
 @app.post("/api/reload")
 async def reload_config():
     """Hot-reload: Re-read entities.toml, disconnect all, reconnect all."""
-    global entity_manager, _tts_manager
+    global entity_manager
 
     args = _cli_args
     if not args or not entity_manager or not _tts_manager:

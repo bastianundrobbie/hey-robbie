@@ -27,7 +27,6 @@ import argparse
 import asyncio
 import json
 import sys
-import time
 import wave
 
 from websockets.asyncio.client import connect

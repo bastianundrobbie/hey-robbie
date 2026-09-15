@@ -16,7 +16,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime, timedelta
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -360,7 +360,6 @@ class TimerCapability(BaseCapability):
 
     def get_status(self) -> list[dict[str, Any]]:
         """Return active timers for UI display."""
-        now = datetime.now(self._tz)
         result = []
         for entry in sorted(self._timers.values(), key=lambda e: e.ends_at):
             if entry.fired:
