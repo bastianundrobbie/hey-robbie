@@ -46,14 +46,14 @@ Wohnzimmer                          Büro (Server, Docker)                  Inte
 
 ## Die Anleitung
 
-| Teil | Kapitel | Meilenstein |
-|---|---|---|
-| 1 | [Hardware und Ohr](docs/teil-1-hardware-und-ohr.md) | Robbie piept auf „Hey Robbie" |
-| 2 | Der erste Satz *(folgt)* | Robbie antwortet |
-| 3 | Was in der Sekunde passiert *(folgt)* | |
-| 4 | Erziehung: der Prompt *(folgt)* | |
-| 5 | Werkzeuge: ein eigenes MCP *(folgt)* | |
-| 6 | Was es kostet, und wo es aufhört *(folgt)* | |
+| Teil | Kapitel | Video | Meilenstein |
+|---|---|---|---|
+| 1 | [Hardware und Ohr](docs/teil-1-hardware-und-ohr.md) | [Teil 1 auf YouTube](https://youtu.be/d0XpAoShd-w) | Robbie piept auf „Hey Robbie" |
+| 2 | Der erste Satz *(folgt)* | | Robbie antwortet |
+| 3 | Was in der Sekunde passiert *(folgt)* | | |
+| 4 | Erziehung: der Prompt *(folgt)* | | |
+| 5 | Werkzeuge: ein eigenes MCP *(folgt)* | | |
+| 6 | Was es kostet, und wo es aufhört *(folgt)* | | |
 
 ## Schnellstart
 
